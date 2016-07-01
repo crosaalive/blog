@@ -132,3 +132,29 @@ a:link,a:visited{text-decoration: none;}
 		background: #669DEE;
 		color: #070707;
 	};
+
+	/*数据导入导出*/
+	 .ext{
+        margin-left: 400px;
+    }
+    .table2{
+        text-align: center;
+        border-collapse: collapse;
+        border:1px solid gray;
+    }
+     .table2 tr{
+        border-collapse: collapse;
+        border:1px solid gray;
+    }
+     .table2 tr:hover{
+        background: #9AD6EA;
+        font-weight: bold;
+        
+    }
+     .table2 th{
+     	text-align: center;
+        border-collapse: collapse;
+        border:1px solid gray;
+    }
+
+    /**/

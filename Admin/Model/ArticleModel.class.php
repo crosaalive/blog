@@ -16,12 +16,12 @@ class ArticleModel extends Model{
 	static public function articleList($id=''){
 		if ($id) {
 			$list = D('article')
-				->field('id,title,content,user_id,user_name,recycle,created,click,cat_id,cat_name,is_show')
+				->field('id,title,content,user_id,user_name,recycle,created,click,cat_id,is_show')
 				->where(array('id'=>"$id"))
 				->find();
 		}else{
 			$list = D('article')
-				->field('id,title,user_id,user_name,recycle,created,click,cat_id,cat_name')
+				->field('id,title,user_id,user_name,recycle,created,click,cat_id')
 				->select();
 				}
 		return $list;

@@ -7,7 +7,14 @@ return array(
  	'TMPL_DETECT_THEME'     => false,       // 自动侦测模板主题
  	'TMPL_TEMPLATE_SUFFIX'  => '.html',     // 默认模板文件后缀
 	'LAYOUT_ON'           =>  true,   //开启模板布局     默认是关闭状态 详见ThinkPHP手册的"模板"
-	'LAYOUT_NAME'         =>  '/Common/layout'
-	//'配置项'=>'配置值'
-	//后台模板
+	'LAYOUT_NAME'         =>  '/Common/layout',//后台模板
+	// auth 配置 此配置会覆盖auth类的默认配置
+	'AUTH_CONFIG' => array(
+	    'AUTH_ON' => true, //认证开关
+	    'AUTH_TYPE' => 1, // 认证方式，1为时时认证；2为登录认证。
+	    'AUTH_GROUP' => 'z_auth_group', //用户组数据表名
+	    'AUTH_GROUP_ACCESS' => 'z_auth_group_access', //用户组明细表
+	    'AUTH_RULE' => 'z_auth_rule', //权限规则表
+	    'AUTH_USER' => 'z_user',//用户信息表,根据自己的填写
+	    ),
 );

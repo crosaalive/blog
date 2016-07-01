@@ -1,21 +1,20 @@
 <br><br><br>
 <div class="article">
-	<form action="<{:U('Admin/Article/editHandle')}>
-		" method="post">文章标题<input type="text" style="width:597px;" name="title" value="<{$content['title']}>">
+	<form action="<{:U('Admin/Article/editHandle')}>" enctype="multipart/form-data" method="post">文章标题<input type="text" style="width:597px;" name="title" value="<{$content['title']}>">
 		<br>	
 		<br>	
 		所属分类
 		<select name="cat_id" id="cat_id">
 			<option value="">......请选择......</option>
 			<foreach name="list" item="v" >
-				<option value="<{$v['cat_id']}>"
-					<if condition="$v['cat_id'] eq $content['cat_id']">selected="selected"</if>
-					>
+				<option value="<{$v['cid']}>"
+				<if condition="$v['cid'] eq $content['cat_id']">selected="selected"</if>>
 					<{$v['cat_name']}></option>
 				</foreach>
 			</select>
 			&nbsp;&nbsp;是否在前台页面显示
-			<input name="is_show" type="checkbox" value="1" <if condition="$content['is_show'] eq 1 "> checked="checked" </if> />	
+			<input name="is_show" type="checkbox" value="1" <if condition="$content['is_show'] eq 1 "> checked="checked" </if> /><br><br>
+			<p>文章缩略图 :　<input type="file" name="thumb" /> </p>
 			<input type="hidden" name="cat_name" id="cat_name" value="<?php echo $content['cat_name']; ?>">	
 			<br>	
 			<br>	

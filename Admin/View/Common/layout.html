@@ -25,7 +25,7 @@
 <body>
 <div class="top">
 	<div class="houtai">
-		<p><a href="/">后台管理</a></p>
+		<p><a href="<{:U('Admin/index/index')}>">后台管理</a> <span style="float:right;"><a href="<{:U('Admin/Login/logout/')}>"><?php echo ($_SESSION['user_name']?"退出":"登录") ?></a> </span> &nbsp; &nbsp; &nbsp; &nbsp;</p>
 	</div>
 </div>
 <div>
@@ -35,13 +35,15 @@
 
 				<li><a href="#" class="inactive">设置</a>
 					<ul style="display: none">
-						<li class="last"><a href="#">幻灯片</a></li> 
+						<li class="last"><a href="#">幻灯片</a></li>
+						<li class=""><a href="<{:U('Admin/Link/index')}>">友情链接</a></li>  
 						<li class="last"><a href="#">网站信息</a></li> 
 						<li class="last"><a href="#">清除缓存</a></li> 
 					</ul>
 				</li>
 				<li><a href="#" class="inactive">内容管理</a>
 					<ul style="display: none">
+						<li class="last"><a href="<{:U('Admin/Nav/index')}>">导航列表</a></li> 
 						<li class="last"><a href="<{:U('Admin/Category/index')}>">分类列表</a></li> 
 						<li class="last"><a href="<{:U('Admin/Article/index')}>">文章列表</a></li> 
 						<li class="last"><a href="<{:U('Admin/Article/addArticle')}>">添加文章</a></li> 
@@ -52,8 +54,9 @@
 				
 				<li><a href="#" class="inactive">权限管理</a>
 					<ul style="display: none">
-						<li class="last"><a href="<{:U('Admin/Userauth/index',array('type'=>'export'))}>">用户组管理</a></li> 
-						<li class="last"><a href="<{:U('Admin/Useraut/index')}>">用户组权限设置</a></li> 
+						<li class="last"><a href="<{:U('Admin/AuthManager/index')}>">用户组管理</a></li> 
+						<li class="last"><a href="<{:U('Admin/AuthManager/ruleList')}>">规则管理</a></li> 
+						<li class="last"><a href="<{:U('Admin/User/index')}>">会员管理</a></li>
 					</ul>
 				</li>
 

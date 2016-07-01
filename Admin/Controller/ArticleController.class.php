@@ -9,20 +9,17 @@ class ArticleController extends CommonController{
  *文章列表 
  */
 	public function index(){
-		$_SESSION['user_name']='admin';
-		// echo "<pre>";	//2016-6-27 16:45:34 插入数据库的内容要执行过滤或转义
-		// $con = M()->query('select * FROM z_cat');
-		// $b = array_map('mysql_real_escape_string', $con); //过滤引号等字符
-		// print_r($a);
 		$article    = M('article');
 		$count      = $article->where('recycle=0')->count();// 查询满足要求的总记录数
 		$Page       = new \Think\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数(5)
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
 		$list 		= $article->where('recycle=0')
+						->field('id,title,content,user_id,user_name,recycle,created,click,cat_id,is_show,cat_name')
+						->join('LEFT JOIN __CAT__ ON __ARTICLE__.cat_id = __CAT__.cid')
 						->order('created desc')
 						->limit($Page->firstRow.','.$Page->listRows)
-						->select();
+						->select();//文章与分类关联数据
 		$this->assign('list',$list);// 赋值数据集
 		$this->assign('page',$show);// 赋值分页输出
 		$this->display();
@@ -39,13 +36,13 @@ class ArticleController extends CommonController{
 // 编辑文章
 	public function editArticle(){
 		$id 		= I('id','','intval');
-		$result =ArticleModel::articleList($id);//获取分一条文章记录
+		$result 	=ArticleModel::articleList($id);//获取分一条文章记录
 		if ($id && $result) {
 			$this->assign('content',$result);
 			$this->assign('list',CatModel::catList());//获取分类列表
 			$this->display();
 		} else{
-			$this->error('无效参数/或文章不存在','index',2);
+			$this->error('无效参数/或文章不存在',U('index'),2);
 		}		
 	}
 
@@ -83,15 +80,16 @@ class ArticleController extends CommonController{
 		$data['title'] 		= I('post.title','');
 		$data['content'] 	= I('post.content','0');
 		$data['cat_id'] 	= I('post.cat_id','','intval');
-		$data['cat_name']  	= I('post.cat_name','');
 		$data['is_show']	= I('post.is_show','0','intval');
 		$data['modified']	= time();
+		// echo "<pre>";
+		// var_dump($data);die;
 		if ($is_edit && $id['id']) {
 			$res = ArticleModel::saveData($id,$data);//编辑保存
 			if ($res) {
-					$this->success('编辑成功','index',2);
+					$this->success('编辑成功','index',1);
 				} else{
-					$this->error('编辑失败','index',2);
+					$this->error('编辑失败','index',1);
 			} 
 		} else{
 			$this->error('文章非法编辑','index',1);
@@ -99,17 +97,12 @@ class ArticleController extends CommonController{
 	}
 
 /**
- * 文章删除处理
+ * 文章删除放到回收站处理
  */
 	public function delArticle(){
-		$data = M('article');
-   		$id   = I('post.a_id','','intval');
-   		if ($id) {
-   			$result = $data->where(array('id' =>"$id"))->delete();//根据文章id删除记录
-   			$this->ajaxReturn($result);
-   		} else{
-   			$this->ajaxReturn(0);
-   		}
+   		$id              = I('a_id','','intval');//文章id
+		$result = M('article')->where(array('id' =>$id))->save(array('recycle' =>1));//根据文章id更改回收站回收站状态
+		$this->ajaxReturn($result);
 	}
 }
 

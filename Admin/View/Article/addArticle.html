@@ -2,8 +2,7 @@
 
 <br><br><br>
 <div class="article">
-	<form action="<{:U('Admin/Article/addHandle')}>
-		" method="post">
+	<form action="<{:U('Admin/Article/addHandle')}>" enctype="multipart/form-data" method="post">
 		文章标题
 		<input type="text" style="width:597px;" name="title" value="">	
 		<br>	
@@ -15,7 +14,8 @@
 				<option value="<{$v['cat_id']}>"><{$v['cat_name']}></option>
 			</foreach>
 		</select>
-		&nbsp;&nbsp;是否在前台页面显示<input name="is_show" type="checkbox" value="1" checked="checked" />
+		&nbsp;&nbsp;是否在前台页面显示<input name="is_show" type="checkbox" value="1" checked="checked" /><br><br>
+		<p>文章缩略图 :　<input type="file" name="thumb" /> </p>
 		<input type="hidden" name="cat_name" id="cat_name" value="">
 		<br>	
 		<br>

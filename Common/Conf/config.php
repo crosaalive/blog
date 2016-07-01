@@ -6,7 +6,7 @@
 	'DB_USER'             =>  'root',      // 用户名
 	'DB_PWD'              =>  'root',          // 密码
 	'DB_PORT'             =>  '3306',        // 端口
-	'SHOW_PAGE_TRACE' 	  =>  true, 
+	// 'SHOW_PAGE_TRACE' 	  =>  true, 
 	'DB_PREFIX'           =>  'z_',    // 数据库表前缀
 	// 'DB_DEBUG'            =>  false, // 数据库调试模式 开启后可以记录SQL日志
 	'DB_LITE'             =>  false,    // 使用数据库Lite模式

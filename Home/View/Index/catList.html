@@ -45,7 +45,7 @@
 			
 		<foreach name="article" item="arti">
 			<div class="article">
-				<div class="thumb"><a href=""><img src="__PUBLIC__/images/01.jpg" alt=""></a></div>
+				<div class="thumb"><a href=""><img src="<?php echo ($arti['thumb']?"__PUBLIC__/thumb/".$arti['thumb']:""); ?>" alt=""></a></div>
 				<div class="detail">
 					<div>
 							<li> <h3><a href="<{:U('Home/Index/content',array('id'=>$arti['id']))}>"><{$arti['title']}></a></h3> </li>

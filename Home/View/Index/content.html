@@ -119,7 +119,7 @@
 					<div class="category">
 							<li>
 							<foreach name="cat" item="cate">
-								<li><a href="#"><{$cate['cat_name']}></a></li>
+								<li><a href="<{:U('Home/Index/catList',array('cid'=>$cate['cid']))}>"><{$cate['cat_name']}></a></li>
 								</foreach>
 							</li>
 					</div>

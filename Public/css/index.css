@@ -131,6 +131,13 @@ a:visited { text-decoration: none; color: #666 }
 	height: 22px;
 	overflow: hidden;
 }
+.detail div li h3 a{
+	color: #294040;
+	margin:3px 0;
+	height: 22px;
+	overflow: hidden;
+	text-decoration: none;
+}
 
 .detail div li h3:hover{
 	text-decoration: underline;
@@ -330,3 +337,36 @@ a:visited { text-decoration: none; color: #666 }
 .thumb img,.banner_3 a img,a img{
 	border-style: none;
 }
+/*文章列表分页*/
+.page{
+	margin-top: 20px;
+	margin-left: 80px;
+}
+  	.current,.num{
+  		font-size: 15px;
+		margin: 1px;
+		padding: 6px 12px;
+		background: #287CF7;
+		color:#FFFFFF;
+	}
+	.current{
+		background: #AFC5B4;
+		color: #FCF9F9;
+		font-weight: bold;
+	}
+	.num:hover{
+		background: #51EA7C;
+		color: #070707;
+		font-weight: bold;
+	}
+
+	.prev,.next{
+		font-size: 15px;
+		padding: 6px 12px;
+		/*background: #51EA7C;*/
+		color: #070707;
+	}
+	.prev:hover,.next:hover{
+		background: #669DEE;
+		color: #070707;
+	};

@@ -7,7 +7,7 @@ use Think\Model;
 class CatModel extends Model{
 	// protected $tableName = 'cat'; 
 	static	public function catList(){
-		$list = D('cat')->field('cid,parent_id,cat_name,sort')->select();
+		$list = M('cat')->field('cid,parent_id,cat_name,sort')->select();
 		return $list;
 	}
 }

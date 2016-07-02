@@ -153,5 +153,46 @@ class AuthManagerController extends CommonController{
 			$this->error('用户组权限更新失败');
 		}
 	}
+/**
+ * [editRule 修改规则表单]
+ * @return [type] [description]
+ */
+	public function editRule(){
+		$id       = I('id','','intval');
+		$result   = M('auth_rule')->where(array('id'=>$id))->find();
+		$this->assign('rule',$result);
+		$this->display();
+	}
+	/**
+	 * [editRuleHandle 验证规则修改处理]
+	 * @return [type] [description]
+	 */
+	public function editRuleHandle(){
+		$data['id']      = I('post.id','','intval');
+		$data['name']    = I('post.name','');
+		$data['title']   = I('post.title','');
+		$data['status']  = I('post.status','0','intval');
+		$result  = M('auth_rule')->save($data);
+		if ($result) {
+			$this->success('修改成功',U('ruleList'));
+		} else{
+			$this->error('修改失败!!!');
+		}
+	}
+/**
+ * [delRule 删除验证规则]
+ * @return [type] [description]
+ */
+	public function delRule(){
+		$data['id']      = I('post.id','','intval');
+		$result  = M('auth_rule')->where($data)->delete();
+		if ($result) {
+			$this->success('删除成功',U('ruleList'));//待改进返回数据
+		} else{
+			$this->error('删除失败!!!');
+		}
+	}
+
 }
+
 ?>

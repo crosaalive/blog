@@ -1,0 +1,87 @@
+[ 2016-07-02T08:51:35+08:00 ] ::1 /xblog/index.php
+ERR: 无法加载控制器:Index
+
+[ 2016-07-02T08:52:20+08:00 ] ::1 /xblog/index.php
+ERR: 无法加载控制器:Index
+
+[ 2016-07-02T08:52:28+08:00 ] ::1 /xblog/index.php/Index/index/p/2.html
+ERR: 无法加载控制器:Index
+
+[ 2016-07-02T08:52:33+08:00 ] ::1 /xblog/index.php
+ERR: 无法加载控制器:Index
+
+[ 2016-07-02T08:52:36+08:00 ] ::1 /xblog/index.php
+ERR: 无法加载控制器:Index
+
+[ 2016-07-02T13:16:09+08:00 ] ::1 /xblog/index.php/Home/Index/content/id/21.html
+ERR: 1054:Unknown column '' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`title`,`content`,`user_id`,`user_name`,`recycle`,`created`,`click`,`cat_id`,`is_show`,`` FROM `z_article` WHERE `id` = 21 AND `is_show` = 1 AND `recycle` = 0 LIMIT 1  
+
+[ 2016-07-02T13:18:07+08:00 ] ::1 /xblog/index.php/Home/Index/content/id/21.html
+ERR: 1054:Unknown column '' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`title`,`content`,`user_id`,`user_name`,`created`,`click`,`cat_id`,`is_show`,`` FROM `z_article` WHERE `id` = 21 AND `is_show` = 1 AND `recycle` = 0 LIMIT 1  
+
+[ 2016-07-02T13:18:30+08:00 ] ::1 /xblog/index.php/Home/Index/content/id/21.html
+ERR: 1054:Unknown column '' in 'field list'
+ [ SQL语句 ] : SELECT `id`,`title`,`content`,`user_id`,`user_name`,`created`,`click`,`cat_id`,`is_show`,`` FROM `z_article` WHERE `id` = 21 AND `is_show` = 1 AND `recycle` = 0 LIMIT 1  
+
+[ 2016-07-02T13:39:15+08:00 ] ::1 /xblog/index.php/Home/Index/catList/cid/3.html
+ERR: 非法操作:catList
+
+[ 2016-07-02T13:49:42+08:00 ] ::1 /xblog/index.php/Home/index.js.map
+ERR: 无法加载控制器:Index.js.map
+
+[ 2016-07-02T13:49:52+08:00 ] ::1 /xblog/index.php/Home/index.js.map
+ERR: 无法加载控制器:Index.js.map
+
+[ 2016-07-02T14:10:38+08:00 ] ::1 /xblog/index.php/Home/index.js.map
+ERR: 无法加载控制器:Index.js.map
+
+[ 2016-07-02T14:22:09+08:00 ] ::1 /xblog/index.php/Index/index.js.map
+ERR: 非法操作:index.js.map
+
+[ 2016-07-02T14:22:25+08:00 ] ::1 /xblog/index.php/Index/index.js.map
+ERR: 非法操作:index.js.map
+
+[ 2016-07-02T20:42:39+08:00 ] ::1 /xblog/upload/thumb/20160702/index.js.map
+ERR: 无法加载控制器:Upload
+
+[ 2016-07-02T21:43:14+08:00 ] ::1 /xblog/Public/thumb/$content['thumb']
+ERR: 无法加载控制器:Public
+
+[ 2016-07-02T22:12:30+08:00 ] ::1 /xblog/index.js.map
+ERR: 无法加载控制器:Index.js.map
+
+[ 2016-07-02T22:47:50+08:00 ] ::1 /xblog/index.php/Index/index/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: Premature end of data (mysqlnd_wireprotocol.c:553) D:\Program Files\phpstudy2016\WWW\xblog\ThinkPHP\Library\Think\Db\Driver.class.php 第 103 行.
+NOTIC: [2] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: OK packet 1 bytes shorter than expected D:\Program Files\phpstudy2016\WWW\xblog\ThinkPHP\Library\Think\Db\Driver.class.php 第 103 行.
+ERR: SQLSTATE[HY000] [2000] mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file
+
+[ 2016-07-02T22:47:57+08:00 ] ::1 /xblog/index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: Premature end of data (mysqlnd_wireprotocol.c:553) D:\Program Files\phpstudy2016\WWW\xblog\ThinkPHP\Library\Think\Db\Driver.class.php 第 103 行.
+NOTIC: [2] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: OK packet 1 bytes shorter than expected D:\Program Files\phpstudy2016\WWW\xblog\ThinkPHP\Library\Think\Db\Driver.class.php 第 103 行.
+ERR: SQLSTATE[HY000] [2000] mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file
+
+[ 2016-07-02T22:48:42+08:00 ] ::1 /xblog/index.php/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: Premature end of data (mysqlnd_wireprotocol.c:553) D:\Program Files\phpstudy2016\WWW\xblog\ThinkPHP\Library\Think\Db\Driver.class.php 第 103 行.
+NOTIC: [2] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: OK packet 1 bytes shorter than expected D:\Program Files\phpstudy2016\WWW\xblog\ThinkPHP\Library\Think\Db\Driver.class.php 第 103 行.
+ERR: SQLSTATE[HY000] [2000] mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file
+

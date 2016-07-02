@@ -11,20 +11,13 @@ class ArticleModel extends Model{
         // array('content', '', '标识已经存在', self::MUST_VALIDATE, 'unique', self::
     );
 	/**
-	 * 文章列表 / 获取一条文章记录
+	 *  获取一条文章记录
 	 */
 	static public function articleList($id=''){
-		if ($id) {
-			$list = D('article')
-				->field('id,title,content,user_id,user_name,recycle,created,click,cat_id,is_show')
+			return M('article')
+				->field('id,title,content,user_id,user_name,recycle,created,thumb,click,cat_id,is_show')
 				->where(array('id'=>"$id"))
 				->find();
-		}else{
-			$list = D('article')
-				->field('id,title,user_id,user_name,recycle,created,click,cat_id')
-				->select();
-				}
-		return $list;
 	}
 /**
  *添加文章

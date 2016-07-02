@@ -1,8 +1,8 @@
 <?php
 return array(
-	// 'SHOW_PAGE_TRACE'	  =>  true, 	// 显示页面Trace信息
-	// 'HTML_CACHE_ON'       =>  false, 		// 开启静态缓存
-	// 'TMPL_CACHE_ON'       =>  false,       // 是否开启模板编译缓存,
+	'SHOW_PAGE_TRACE'	  =>  true, 	// 显示页面Trace信息
+	'HTML_CACHE_ON'       =>  false, 		// 开启静态缓存
+	'TMPL_CACHE_ON'       =>  false,       // 是否开启模板编译缓存,
 	"DEFAULT_CHARSET"     =>  'utf-8', 		//默认页面输出编码
  	'TMPL_DETECT_THEME'     => false,       // 自动侦测模板主题
  	'TMPL_TEMPLATE_SUFFIX'  => '.html',     // 默认模板文件后缀
@@ -17,4 +17,13 @@ return array(
 	    'AUTH_RULE' => 'z_auth_rule', //权限规则表
 	    'AUTH_USER' => 'z_user',//用户信息表,根据自己的填写
 	    ),
+	'THUMB_CONFIG' => array(
+		    'maxSize'    =>    3145728,//图片大小
+		    'rootPath'   =>    './Public/thumb/',//保存路径
+		    'savePath'   =>    '',
+		    'saveName'   =>    array('uniqid',''),
+		    'exts'       =>    array('jpg', 'gif', 'png', 'jpeg'),
+		    'autoSub'    =>    true,//子目录保存
+		    'subName'    =>    array('date','Ymd'),//子目录保存格式
+		),
 );

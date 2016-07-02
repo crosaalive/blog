@@ -16,6 +16,14 @@
 	//  return $list;
 	// }
 
+// function articleList(){
+// 	return  M('article')->where('recycle=0')
+// 		->field('id,title,content,user_id,user_name,recycle,created,click,cat_id,is_show,cat_name')
+// 		->join('LEFT JOIN __CAT__ ON __ARTICLE__.cat_id = __CAT__.cid')
+// 		->order('created desc')
+// 		->limit($Page->firstRow.','.$Page->listRows)
+// 		->select();//文章与分类关联数据
+// }
 	/**
   * 格式化字节大小
   * @param  number $size      字节数

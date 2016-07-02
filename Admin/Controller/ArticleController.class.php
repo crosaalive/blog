@@ -3,7 +3,9 @@ namespace Admin\Controller;
 use Think\Controller;
 use Admin\Model\CatModel;
 use Admin\Model\ArticleModel;
-use Think\page;
+use Think\Page;
+use Think\Upload;
+use Think\Image;
 class ArticleController extends CommonController{
 /**
  *文章列表 
@@ -15,7 +17,7 @@ class ArticleController extends CommonController{
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
 		$list 		= $article->where('recycle=0')
-						->field('id,title,content,user_id,user_name,recycle,created,click,cat_id,is_show,cat_name')
+						->field('id,title,content,user_id,user_name,recycle,thumb,created,click,cat_id,is_show,cat_name')
 						->join('LEFT JOIN __CAT__ ON __ARTICLE__.cat_id = __CAT__.cid')
 						->order('created desc')
 						->limit($Page->firstRow.','.$Page->listRows)
@@ -33,7 +35,44 @@ class ArticleController extends CommonController{
 		$this->display();
 	}
 
-// 编辑文章
+/**
+ * 文章发布处理
+ */
+	public function addHandle(){
+		$s 					= D('article');
+		$data['title'] 		= I('post.title','00');
+		$data['content'] 	= I('post.content','00');
+		$data['cat_id'] 	= I('post.cat_id','','intval');
+		$data['cat_name']  	= I('post.cat_name','');
+		$data['user_name']	= $_SESSION['user_name'];
+		$data['user_id']	= $_SESSION['user_id'];
+		$data['is_show']	= I('post.is_show','0','intval');
+		$data['created']	= time();	
+
+		$config = C('THUMB_CONFIG');//图片默认配置
+		$upload = new \Think\Upload($config);// 实例化上传类
+	    $info   =   $upload->upload();
+	    if($info) {// 上传成功
+	        $data['thumb']	= $info['photo']['savepath'].$info['photo']['savename'];	//缩略图路径
+	    }
+	    // echo "<pre>";
+	    // print_r($data);die;
+
+		if (!$s->create($data)){// 对$data['title']数据进行验证
+			$this->error('添加失败! 文章标题为空','addArticle',1);
+		}else{
+	     	$result = ArticleModel::addData($data);//添加文章
+			if ($result) {
+				$this->success('添加成功','index',2);
+			} else{
+				$this->error('添加失败','index',3);
+			}
+		}	
+	}
+/**
+ * [editArticle 编辑文章表单]
+ * @return [type] [description]
+ */
 	public function editArticle(){
 		$id 		= I('id','','intval');
 		$result 	=ArticleModel::articleList($id);//获取分一条文章记录
@@ -42,35 +81,10 @@ class ArticleController extends CommonController{
 			$this->assign('list',CatModel::catList());//获取分类列表
 			$this->display();
 		} else{
-			$this->error('无效参数/或文章不存在',U('index'),2);
+			$this->error('无效参数或文章不存在',U('index'),2);
 		}		
 	}
 
-/**
- * 文章发布处理
- */
-	public function addHandle(){
-		$s 					=D('article');
-		$data['title'] 		= I('post.title','00');
-		$data['content'] 	= I('post.content','00');
-		$data['cat_id'] 	= I('post.cat_id','','intval');
-		$data['cat_name']  	= I('post.cat_name','');
-		$data['user_name']	= $_SESSION['user_name'];
-		$data['user_id']	= $_SESSION['user_id'];
-		$data['is_show']	= I('post.is_show','0','intval');
-		$data['created']	= time();
-			if (!$s->create($data)){// 对$data['title']数据进行验证
-				$this->error('添加失败! 文章标题为空','addArticle',1);
-     			// exit($s->getError());
-			}else{
-		     	$result = ArticleModel::addData($data);//添加文章
-				if ($result) {
-					$this->success('添加成功','index',2);
-				} else{
-					$this->error('添加失败','index',3);
-			}
-		}	
-	}
 /**
  * 文章编辑处理
  */
@@ -82,8 +96,13 @@ class ArticleController extends CommonController{
 		$data['cat_id'] 	= I('post.cat_id','','intval');
 		$data['is_show']	= I('post.is_show','0','intval');
 		$data['modified']	= time();
-		// echo "<pre>";
-		// var_dump($data);die;
+
+		$config = C('THUMB_CONFIG');//图片默认配置
+		$upload = new \Think\Upload($config);// 实例化上传类
+	    $info   =   $upload->upload();
+	    if($info) {// 图片上传成功则更新到表,否则默认不更新
+	        $data['thumb']	= $info['photo']['savepath'].$info['photo']['savename'];	//缩略图路径
+	    }
 		if ($is_edit && $id['id']) {
 			$res = ArticleModel::saveData($id,$data);//编辑保存
 			if ($res) {
@@ -104,5 +123,6 @@ class ArticleController extends CommonController{
 		$result = M('article')->where(array('id' =>$id))->save(array('recycle' =>1));//根据文章id更改回收站回收站状态
 		$this->ajaxReturn($result);
 	}
+
 }
 

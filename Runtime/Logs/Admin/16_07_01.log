@@ -1,0 +1,14 @@
+[ 2016-07-01T23:35:07+08:00 ] ::1 /xblog/index.php/Admin/User/index.html
+ERR: 1054:Unknown column 'group_id' in 'field list'
+ [ SQL语句 ] : SELECT `uid`,`user_name`,`email`,`created`,`group_id`,`statu`,`title` FROM `z_user` LEFT JOIN z_auth_group ON z_user.group_id = z_auth_group.id  
+
+[ 2016-07-01T23:35:21+08:00 ] ::1 /xblog/index.php/Admin/User/index.html
+ERR: 1054:Unknown column 'group_id' in 'field list'
+ [ SQL语句 ] : SELECT `uid`,`user_name`,`email`,`created`,`group_id`,`statu`,`title` FROM `z_user` LEFT JOIN z_auth_group ON z_user.group_id = z_auth_group.id  
+
+[ 2016-07-01T23:51:36+08:00 ] ::1 /xblog/index.php/Admin/Index/index.js.map
+ERR: 非法操作:index.js.map
+
+[ 2016-07-01T23:51:42+08:00 ] ::1 /xblog/index.php/Admin/Article/index.js.map
+ERR: 非法操作:index.js.map
+

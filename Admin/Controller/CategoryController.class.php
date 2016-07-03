@@ -20,7 +20,7 @@ class CategoryController extends CommonController{
     	
     }
 /**
- * 添加/编辑 分类处理
+ * 添加/编辑 分类处理 
  *t
  */
     public function formHandle(){

@@ -27,7 +27,7 @@
 <body>
 <div class="top">
 	<div class="houtai">
-		<p><a href="<{:U('Admin/index/index')}>">后台管理</a> <span style="float:right;"><a href="<{:U('Admin/Login/logout/')}>"><?php echo ($_SESSION['user_name']?"退出":"登录") ?></a> </span> &nbsp; &nbsp; &nbsp; &nbsp;</p>
+		<p><a href="<{:U('Admin/index/index')}>">后台管理</a> <span style="float:right;margin-left:40px;"><a href="<{:U('Admin/Login/logout/')}>"><?php echo ($_SESSION['user_name']?"退出":"登录") ?></a> </span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="float:right;margin-left:40px;"><?php echo $_SESSION['user_name']; ?></span></p>
 	</div>
 </div>
 <div>

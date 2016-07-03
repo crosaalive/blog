@@ -7,7 +7,7 @@
  *		'DB_PART'     => '20971520',  //该值用于限制压缩后的分卷最大长度。单位：B；建议设置20M
  *		'DB_COMPRESS' => '1',         //压缩备份文件需要PHP环境支持gzopen,gzwrite函数        0:不压缩 1:启用压缩
  *		'DB_LEVEL'    => '9',         //压缩级别   1:普通   4:一般   9:最高
- * @第二：本控制器依赖ThinkPHP/Library/OT/Database.class.php
+ * @第二：本控制器依赖ThinkPHP/Library/org/util/Database.class.php
  * @第三：模版，Home/View/Database下面的2个文件 export.html备份数据库  import.html还原数据库
  * @第四：引用方法：<a href="{:U('Database/index',array('type'=>'export'))}">备份数据库</a>
  * 		          <a href="{:U('Database/index',array('type'=>'import'))}">还原数据库</a>

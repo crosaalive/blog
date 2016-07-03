@@ -27,7 +27,7 @@ class CategoryController extends CommonController{
     	$model 				      = M('cat');
       $sid                = I('post.sid','','intval');//编辑表单id
     	$data['parent_id']  = I('post.parent_id','','intval');//父级分类id
-    	$data['cat_name']  	= I('post.cat_name','0');
+    	$data['cat_name']  	= stripslashes(I('post.cat_name','0'));
     	$data['sort'] 		  = I('post.sort','0','intval');
       // var_dump($data);die;
     	if ($sid) {		//有$cid  则更新,没有则新增

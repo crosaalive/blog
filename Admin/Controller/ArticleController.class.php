@@ -13,7 +13,7 @@ class ArticleController extends CommonController{
 	public function index(){
 		$article    = M('article');
 		$count      = $article->where('recycle=0')->count();// 查询满足要求的总记录数
-		$Page       = new \Think\Page($count,5);// 实例化分页类 传入总记录数和每页显示的记录数(5)
+		$Page       = new \Think\Page($count,10);// 实例化分页类 传入总记录数和每页显示的记录数(5)
 		$show       = $Page->show();// 分页显示输出
 		// 进行分页数据查询 注意limit方法的参数要使用Page类的属性
 		$list 		= $article->where('recycle=0')
@@ -40,24 +40,19 @@ class ArticleController extends CommonController{
  */
 	public function addHandle(){
 		$s 					= D('article');
-		$data['title'] 		= I('post.title','00');
-		$data['content'] 	= I('post.content','00');
+		$data['title'] 		= stripslashes(I('post.title','00'));
+		$data['content'] 	= stripslashes(I('post.content','00'));
 		$data['cat_id'] 	= I('post.cat_id','','intval');
-		$data['cat_name']  	= I('post.cat_name','');
 		$data['user_name']	= $_SESSION['user_name'];
 		$data['user_id']	= $_SESSION['user_id'];
 		$data['is_show']	= I('post.is_show','0','intval');
 		$data['created']	= time();	
-
 		$config = C('THUMB_CONFIG');//图片默认配置
 		$upload = new \Think\Upload($config);// 实例化上传类
 	    $info   =   $upload->upload();
 	    if($info) {// 上传成功
 	        $data['thumb']	= $info['photo']['savepath'].$info['photo']['savename'];	//缩略图路径
 	    }
-	    // echo "<pre>";
-	    // print_r($data);die;
-
 		if (!$s->create($data)){// 对$data['title']数据进行验证
 			$this->error('添加失败! 文章标题为空','addArticle',1);
 		}else{
@@ -91,8 +86,8 @@ class ArticleController extends CommonController{
 	public function editHandle(){
 		$is_edit			= I('post.edit','','intval');
 		$id['id']			= I('post.id','','intval');
-		$data['title'] 		= I('post.title','');
-		$data['content'] 	= I('post.content','0');
+		$data['title'] 		= stripslashes(I('post.title',''));
+		$data['content'] 	= stripslashes(I('post.content','0'));
 		$data['cat_id'] 	= I('post.cat_id','','intval');
 		$data['is_show']	= I('post.is_show','0','intval');
 		$data['modified']	= time();

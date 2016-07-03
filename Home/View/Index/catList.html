@@ -17,7 +17,7 @@
 <body>
 
 	<div class="top">
-		<div class="logo"><a href="#"><img src="__PUBLIC__/images/logo.jpg" alt=""></a></div>
+		<div class="logo"><a href="/demo"><img src="__PUBLIC__/images/logo.jpg" alt=""></a></div>
 		<div class="nav">
 			<ul>
 				<foreach name="nav" item="v">
@@ -48,9 +48,9 @@
 				<div class="thumb"><a href=""><img src="<?php echo ($arti['thumb']?"__PUBLIC__/thumb/".$arti['thumb']:""); ?>" alt=""></a></div>
 				<div class="detail">
 					<div>
-							<li> <h3><a href="<{:U('Home/Index/content',array('id'=>$arti['id']))}>"><{$arti['title']}></a></h3> </li>
+							<li> <h3><a href="<{:U('Home/Index/content',array('id'=>$arti['id']))}>"><?php echo html_entity_decode($arti['title']); ?></a></h3> </li>
 
-							<li class="detail_a"><?php echo html_entity_decode($arti['content']); ?></li>
+							<li class="detail_a"><?php echo htmlspecialchars_decode($arti['content']); ?></li>
 
 							<li><span><{$arti['cat_name']}></span><span>时间 <{$v['created']|date='Y-m-d h',###}></span>
 							<span >点击(<{$arti['click']}>)</span></li>

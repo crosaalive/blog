@@ -13,9 +13,9 @@ class UserController extends CommonController{
 	public function addUser(){
 		if (IS_POST) {
 			$con  			   =  M('user');
-			$data['user_name'] = I('post.user_name','');
+			$data['user_name'] = stripslashes(I('post.user_name',''));
 			$data['password']  = sha1(I('post.password',''));
-			$data['email']     = I('post.email','');
+			$data['email']     = stripslashes(I('post.email',''));
 			$data['statu']	   = 1;
 			$data['created']   = time();
 			$res = $con->where(array('user_name'=>$data['user_name']))->find();

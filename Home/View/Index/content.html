@@ -90,7 +90,7 @@
 						<span>编辑: <{$result['user_name']}></span>
 						<span>浏览(<{$result['click']}>)</span>
 					</li>
-					<li class="article_content"><?php echo html_entity_decode($result['content']); ?></p></li>
+					<li class="article_content"><?php echo htmlspecialchars_decode($result['content']); ?></p></li>
 			</div>
 
 

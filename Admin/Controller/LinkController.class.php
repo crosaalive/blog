@@ -17,9 +17,9 @@ class LinkController extends CommonController {
  */
     public function addHandle(){
 	    if (IS_POST) {
-			$data['url'] = I('post.url','');
+			$data['url'] = stripslashes(I('post.url',''));
 	    	$data['sort'] = I('post.sort','','intval');
-	    	$data['desc'] = I ('post.desc','');
+	    	$data['desc'] = stripslashes(I ('post.desc',''));
 	    	$result = M('link')->add($data);
 		if ($result) {
 			$this->success('链接已添加',U('addLink'));
@@ -47,9 +47,9 @@ class LinkController extends CommonController {
     public function editHandle(){
 	    if (IS_POST) {
 	    	$id['id']	  = I('post.id','','intval'); 
-			$data['url']  = I('post.url','');
-	    	$data['sort'] = I('post.sort','','intval');
-	    	$data['desc'] = I ('post.desc','');
+			$data['url']  = stripslashes(I('post.url',''));
+	    	$data['sort'] = stripslashes(I('post.sort','','intval'));
+	    	$data['desc'] = stripslashes(I ('post.desc',''));
 	    	$result = M('link')->where($id)->save($data);
 		if ($result) {
 			$this->success('链接已更改',U('index'));

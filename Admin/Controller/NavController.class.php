@@ -17,7 +17,7 @@ class NavController extends CommonController {
  */
     public  function addHandle(){
     	if (IS_POST) {
-    		$data['name'] = I('post.name','');
+    		$data['name'] = stripslashes(I('post.name',''));
 	    	$data['sort'] = I('post.sort','','intval');
 	    	$data['url'] = I ('post.url','');
 	    	$result = M('nav')->add($data);
@@ -59,7 +59,7 @@ class NavController extends CommonController {
         public  function editHandle(){
     	if (IS_POST) {
     		$id 		  = I('post.id','','intval');
-    		$data['name'] = I('post.name','');
+    		$data['name'] = stripslashes(I('post.name',''));
 	    	$data['sort'] = I('post.sort','','intval');
 	    	$data['url'] = I ('post.url','');
             

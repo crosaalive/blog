@@ -50,9 +50,9 @@
 					<div>
 							<li> <h3><a href="<{:U('Home/Index/content',array('id'=>$arti['id']))}>"><{$arti['title']}></a></h3> </li>
 
-							<li class="detail_a"><?php echo html_entity_decode($arti['content']); ?></li>
+							<li class="detail_a"><?php echo htmlspecialchars_decode($arti['content']); ?></li>
 
-							<li><span><{$arti['cat_name']}></span><span>时间 <{$v['created']|date='Y-m-d h',###}></span>
+							<li><span><a href="<{:U('Home/Index/catList',array('cid'=>$arti['cat_id']))}>"><{$arti['cat_name']}></a></span><span>时间 <{$arti['created']|date='Y-m-d ',###}></span>
 							<span >点击(<{$arti['click']}>)</span></li>
 					</div>	
 				</div>

@@ -8,7 +8,7 @@
 </style>
 <br><br>
 <div class="article">
-	<form action="<{:U('Admin/Article/editHandle')}>" enctype="multipart/form-data" method="post">文章标题<input type="text" style="width:597px;" name="title" value="<{$content['title']}>">
+	<form action="<{:U('Admin/Article/editHandle')}>" enctype="multipart/form-data" method="post">文章标题<input type="text" style="width:597px;" name="title" value="<?php echo ($content['title']); ?>">
 		<br>	
 		<br>	
 		所属分类
@@ -27,7 +27,7 @@
 			<br>	
 			<textarea id="editor_id" name="content" style="width:600px;height:400px;">
 				<if condition="$content['id'] gt 0 ">
-					<?php echo $content['content']; ?>	
+					<?php echo htmlspecialchars_decode($content['content']); ?>	
 					<else />	
 					&lt;strong&gt; 文章内容&lt;/strong&gt;
 				</if>

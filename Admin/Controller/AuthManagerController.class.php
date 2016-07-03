@@ -24,8 +24,8 @@ class AuthManagerController extends CommonController{
 	 */
 	public function addRuleHandle(){
 		$model 			= M('auth_rule');
-		$data['title']  = trim(I('post.title',''));
-		$data['name']   = I('post.name','');
+		$data['title']  = stripslashes(trim(I('post.title','')));
+		$data['name']   = stripslashes(I('post.name',''));
 		$data['status'] = I('post.status','','intval');
 		$result =$model->where(array('title'=>$data['title']))->find();//添加前查找title规则是否存在
 		if (!$result) {
@@ -51,7 +51,7 @@ class AuthManagerController extends CommonController{
 	public function addGroup(){
 		if (IS_POST) {
 			$data['id'] = I('id','','intval');
-			$data['title']  = I('post.title','');
+			$data['title']  = stripslashes(I('post.title',''));
 			$data['status'] = I('post.status','0','intval');
 			$result = M('auth_group')->add($data);
 			if ($result) {
@@ -85,7 +85,7 @@ class AuthManagerController extends CommonController{
 		public function editGroupHandle(){
 		if (IS_POST) {
 			$id['id'] 		= I('id','','intval');
-			$data['title']  = I('post.title','');
+			$data['title']  = stripslashes(I('post.title',''));
 			$data['status'] = I('post.status','0','intval');
 			$result = M('auth_group')->where($id)->save($data);
 			if ($result) {

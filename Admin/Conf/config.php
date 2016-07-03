@@ -1,8 +1,9 @@
 <?php
 return array(
 	// 'SHOW_PAGE_TRACE'	  =>  true, 	// 显示页面Trace信息
-	'HTML_CACHE_ON'       =>  false, 		// 开启静态缓存
-	'TMPL_CACHE_ON'       =>  false,       // 是否开启模板编译缓存,
+	'DB_FIELDS_CACHE'       =>  false,        // 启用字段缓存
+	// 'HTML_CACHE_ON'       =>  false, 		// 开启静态缓存
+	// 'TMPL_CACHE_ON'       =>  false,       // 是否开启模板编译缓存,
 	"DEFAULT_CHARSET"     =>  'utf-8', 		//默认页面输出编码
  	'TMPL_DETECT_THEME'     => false,       // 自动侦测模板主题
  	'TMPL_TEMPLATE_SUFFIX'  => '.html',     // 默认模板文件后缀
